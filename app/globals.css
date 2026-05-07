@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --border: #1e1e2e;
+  --accent: #7c3aed;
+  --accent-light: #a855f7;
+  --text-muted: #6b7280;
+}
+
+body {
+  background: var(--bg);
+}
+
+/* Markdown styles for changelog output */
+.changelog-content h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.5rem;
+  color: #e2e8f0;
+}
+.changelog-content ul {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.changelog-content li {
+  margin: 0.25rem 0;
+  color: #94a3b8;
+  font-size: 0.925rem;
+}
+.changelog-content p {
+  color: #cbd5e1;
+  margin-bottom: 0.75rem;
+  font-size: 0.925rem;
+}

@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String   @id @default(cuid())
+  githubId      String   @unique
+  username      String
+  email         String?
+  avatarUrl     String?
+  accessToken   String
+  createdAt     DateTime @default(now())
+  changelogs    Changelog[]
+}
+
+model Changelog {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  repoName    String
+  repoOwner   String
+  content     String
+  slug        String   @unique
+  isPublic    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

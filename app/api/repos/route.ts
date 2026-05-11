@@ -10,7 +10,7 @@ export async function GET() {
   try {
     const repos = await getUserRepos(session.accessToken)
     return NextResponse.json(repos)
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json({ error: 'Failed to fetch repos' }, { status: 500 })
   }
 }

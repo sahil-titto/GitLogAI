@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/prisma'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 
 export default async function PublicChangelog({
   params,
@@ -77,9 +78,9 @@ export default async function PublicChangelog({
         <div className="mt-16 pt-8 border-t border-[#1e1e2e] text-center">
           <p className="text-sm text-gray-600">
             Generated with{' '}
-            <a href="/" className="text-violet-400 hover:text-violet-300 transition-colors">
+            <Link href="/" className="text-violet-400 hover:text-violet-300 transition-colors">
               GitLogAI
-            </a>{' '}
+            </Link>{' '}
             — AI-powered changelogs for developers
           </p>
         </div>

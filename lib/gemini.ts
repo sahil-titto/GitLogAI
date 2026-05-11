@@ -38,8 +38,8 @@ Return only the markdown, no explanations.`
     try {
       const result = await model.generateContent(prompt)
       return result.response.text()
-    } catch (err: any) {
-      const is429 = err?.message?.includes('429') || err?.status === 429
+    } catch (err: unknown) {
+      const is429 = (err instanceof Error && err.message?.includes('429')) || (err as { status?: number })?.status === 429
       if (is429 && attempt < 3) {
         // Back off: 5s, then 15s
         await new Promise(resolve => setTimeout(resolve, attempt * 5000))
